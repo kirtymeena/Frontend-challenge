@@ -1,0 +1,45 @@
+@use "../utils/mixin" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.more__aricles-container{
+    @include flexDisplay($flex-direction:column);
+    .header{
+        @include flexDisplay($flex-direction:row);
+    margin-top:7rem;
+    justify-content: center;
+    .line{
+        width:31%;
+  
+        margin-top:1rem;
+    }
+}
+}
+
+.card{
+    @include flexDisplay($flex-direction:column);
+    
+    .card__body{
+        @include flexDisplay($flex-direction:column);
+        @include md{
+            @include flexDisplay($flex-direction:row);
+
+        }
+        margin:2rem;
+
+    }
+  
+   
+    .card__details{
+        @include flexDisplay($flex-direction:column);
+        h2{
+            color:$text-color
+        }
+        p{
+           font-size:19px;
+        }
+    }
+    .card__title{
+        font-weight: 700;
+    }
+}

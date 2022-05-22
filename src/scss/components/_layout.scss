@@ -1,0 +1,17 @@
+@use "../utils/mixin" as *;
+
+@use "../utils/breakpoints" as *;
+
+.main__content{
+    @include flexDisplay($flex-direction:column);
+    @include lg{
+        @include flexDisplay($flex-direction:row,$gap:5);
+        justify-content:space-between
+    }
+}
+
+@include lg{
+.more__articles{
+ display: none;
+}
+}

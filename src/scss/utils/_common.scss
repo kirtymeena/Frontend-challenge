@@ -1,0 +1,13 @@
+@use "./breakpoints" as *;
+
+
+
+.container{
+    padding-inline:1rem;
+    @include md{
+        padding-inline: 5rem;
+    }
+    
+}
+
+

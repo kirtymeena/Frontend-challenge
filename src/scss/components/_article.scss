@@ -1,0 +1,32 @@
+@use "../utils/mixin" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.content{
+    @include flexDisplay($flex-direction:column,$gap:3);
+      
+    h1{
+        opacity: 90%;
+    }
+    &__details{
+        @include flexDisplay($flex-direction:column);
+        .sub__heading{
+            font-size:15px;
+            font-weight: 600;
+            opacity: 85%;
+            font-size: 17px;
+        }
+       
+    }
+    
+
+}
+.more_article{
+    display: none;
+}
+
+@include lg{
+    .more_article{
+        display: block;
+    }
+}

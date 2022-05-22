@@ -1,0 +1,126 @@
+@use "../utils/mixin" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+nav {
+  background-color: $nav-bg-color;
+  @include flexDisplay();
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-weight: 900;
+  color: $logo-color;
+  padding-block: 0.7rem;
+}
+
+.nav__item-lg {
+  // do not display navbar items meant for large screen in small screens
+  @include sm {
+    display: none;
+  }
+  svg {
+    cursor: pointer;
+  }
+}
+
+@include lg {
+  .nav__item-sm {
+    display: none;
+  }
+  .nav__item-lg {
+    display: block;
+    @include flexDisplay($gap: 2);
+  }
+  .nav__link {
+    @include navLink;
+
+    padding-block: 0.9rem;
+    padding-inline: 0.6rem;
+  }
+}
+
+/* navbar for small screens */
+
+.nav__item-sm {
+  @include navLink($opacity: 100%);
+  svg {
+    cursor: pointer;
+  }
+}
+
+.nav__links-sm {
+  position: absolute;
+  padding-inline: 2rem;
+  right: 1px;
+  top: 0;
+  visibility: hidden;
+  z-index: 100;
+  opacity: 100%;
+  background: $nav-bg-color;
+  height: 100vh;
+
+  .nav__link {
+    margin: 1rem;
+  }
+  .nav__link:hover{
+    opacity: 80%;
+  }
+}
+.open {
+  visibility: visible;
+  animation: 0.6s ease-out 0s 1 slideFromRight;
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// nav__link underline indicator
+.underline-indicator > *:hover,
+.clicked,
+.underline-indicator > *::before {
+  border-bottom: 2px solid $logo-color;
+
+  opacity: 100%;
+  height: 3.1rem;
+  background: #1f2a30;
+  transition: all 0.3s linear;
+}
+
+// banner
+.banner {
+  @include flexDisplay();
+  justify-content: center;
+  padding-block: 4rem;
+  padding-inline: 2rem;
+  margin-bottom: 2rem;
+
+  p {
+    font-size: 19px;
+    font-weight: 600;
+    color: white;
+    opacity: 97%;
+    position: relative;
+
+    span {
+      background-color: #eeac56;
+    }
+  }
+
+  background-color: $banner-bg-color;
+  @include lg {
+    padding-inline: 5rem;
+    padding-right: 29rem;
+  }
+}
+
+.clicked{
+
+}

@@ -1,0 +1,28 @@
+@use "../utils/mixin" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.footer__container{
+    background-color:#28373e;
+    margin-top:3rem;
+    padding-block:2rem;
+    @include flexDisplay($flex-direction:column);
+    @include lg{
+        @include flexDisplay($flex-direction:row,$gap:4);
+
+    }
+    justify-content: center;
+    text-align: center;
+
+    h2{
+        color:white;
+    }
+    p{
+        color:rgb(118, 120, 126);
+        font-size:17px;
+        cursor: pointer;
+    }
+    p:hover{
+        text-decoration: underline;
+    }
+}
